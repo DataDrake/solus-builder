@@ -37,5 +37,9 @@ const (
 // Task is an operation to be performed by a Job
 type Task struct {
     Type      TaskType
-    Package   string
+    Package   struct {
+        Name    string
+        Version string
+        Release int
+    }
 }

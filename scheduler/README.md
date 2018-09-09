@@ -14,6 +14,39 @@ GET /
 
 ### Private
 
+#### Types
+
+**Job**
+``` json
+{
+    "id"   : 27087,
+    "task" : {
+        "type"    : 0,
+        "package" : {
+            "name"    : "gd",
+            "version" : "2.2.5",
+            "release" : 13,
+        }
+    },
+    "status"    : 3,
+    "user"      : "sunnyflunk",
+    "created"   : "2018-09-07T02:25:13Z00:00",
+    "started"   : "2018-09-07T02:25:16Z00:00",
+    "finished"  : "2018-09-07T02:29:23Z00:00",
+    "builderid" : 0
+}
+```
+
+**Jobs**
+``` json
+{
+    "jobs" : [
+        {job},
+        {job}
+    ]
+}
+```
+
 #### Jobs
 ``` yaml
 GET /api/v1/jobs
