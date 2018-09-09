@@ -1,32 +1,35 @@
 # solus-builder
 Prototyping area for next-generation builder.
 
-## API
+## Components
 
-### Public
-GET /
+### Scheduler
 
-### Private
+**Primary Purpose:** Provides a centralized resource for manipulating and assigning work to Builders.
 
-#### Jobs
-GET /api/v1/jobs
-    Response: Page 1 with default offset of 25 jobs
+**Secondary Purposes:**
 
-GET /api/v1/jobs/jobs?page=3&offset=10
+* Provides a public overview of what is taking place in the build environment
+* Provides a private API to a Job database
+* Will eventually coordinate parallel execution of multiple jobs by multiple builders
 
-POST /api/v1/jobs?package=nano
+### Builder
 
-GET /api/v1/jobs/10
-    Response: JSON description of the job 
+**Primary Purpose:** Builds new packages for the Solus repository.
 
-PUT /api/v1/jobs/10?state=done
-PUT /api/v1/jobs/10?state=failed
-PUT /api/v1/jobs/10?state=cancelled
+**Secondary Purposes:**
 
-#### Builder
-GET /api/v1/builder/status
+* Performs cleanup operations in order to responsibly use disk space
+* Performs upgrades to the associated `solbuild` image.
+* Provides a private API to be used by the scheduler to monitor cluster health.
 
-POST /api/v1/builder/clean
-POST /api/v1/builder/clean?all=true
+### CLI
 
-POST /api/v1/builder/update
+**Primary Purpose:** Allows users to manage Jobs via a single user interface.
+
+**Secondary Purposes:**
+
+* Allows authorized users to manage the maintenance of Builders.
+* Provides command line reports of scheduler activities.
+* Provides command line summaries of cluster health.
+
