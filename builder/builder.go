@@ -14,28 +14,12 @@
 // limitations under the License.
 //
 
-package types
+package main
 
-// TaskType specifies the kind of task to perform
-type TaskType uint8
-
-const (
-	// Build tasks build a package as specified by name
-	Build TaskType = 0
-	// Clean tasks perform a `solbuild delete-cache`
-	Clean TaskType = 1
-	// DeepClean task perform a `solbuild delete-cache --all` and clean up cached eopkgs
-	DeepClean TaskType = 2
-	// Update performs a `solbuild update`
-	Update TaskType = 3
+import (
+    "github.com/DataDrake/solus-builder/builder/cli"
 )
 
-// Task is an operation to be performed by a Job
-type Task struct {
-	Type    TaskType
-	Package struct {
-		Name    string
-		Version string
-		Release int
-	}
+func main() {
+    cli.Root.Run()
 }

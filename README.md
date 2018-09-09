@@ -1,6 +1,22 @@
 # solus-builder
 Prototyping area for next-generation builder.
 
+## Build
+
+### Requirements
+
+* [dep](https://github.com/golang/dep)
+* [libsqlite3](https://www.sqlite.org)
+
+### Instructions
+
+``` bash
+git clone github.com/DataDrake/solus-builder
+cd solus-builder
+make
+sudo make install
+```
+
 ## Components
 
 ### Scheduler

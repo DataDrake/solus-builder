@@ -14,28 +14,24 @@
 // limitations under the License.
 //
 
-package types
+package cli
 
-// TaskType specifies the kind of task to perform
-type TaskType uint8
-
-const (
-	// Build tasks build a package as specified by name
-	Build TaskType = 0
-	// Clean tasks perform a `solbuild delete-cache`
-	Clean TaskType = 1
-	// DeepClean task perform a `solbuild delete-cache --all` and clean up cached eopkgs
-	DeepClean TaskType = 2
-	// Update performs a `solbuild update`
-	Update TaskType = 3
+import (
+    "github.com/DataDrake/cli-ng/cmd"
 )
+// GlobalFlags contains the flags for all commands
+type GlobalFlags struct{}
 
-// Task is an operation to be performed by a Job
-type Task struct {
-	Type    TaskType
-	Package struct {
-		Name    string
-		Version string
-		Release int
-	}
+// Root is the main command for this application
+var Root *cmd.RootCMD
+
+func init() {
+    // Build Application
+    Root = &cmd.RootCMD{
+        Name:  "solus-builder",
+        Short: "Builder Web Service for the Solus Build Environment",
+        Flags: &GlobalFlags{},
+    }
+    // Setup the Sub-Commands
+    Root.RegisterCMD(&cmd.Help)
 }

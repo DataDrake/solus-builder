@@ -17,31 +17,31 @@
 package types
 
 import (
-    "time"
+	"time"
 )
 
 // JobStatus describes the current status of a Job
 type JobStatus uint8
 
 const (
-    // Idle jobs have not yet been assigned to a builder
-    Idle      JobStatus = 0
-    // Running jobs are now being carried out
-    Running   JobStatus = 1
-    // Completed jobs have finised successfully
-    Completed JobStatus = 2
-    // Failed jobs did not complete successfully
-    Failed    JobStatus = 3
+	// Idle jobs have not yet been assigned to a builder
+	Idle JobStatus = 0
+	// Running jobs are now being carried out
+	Running JobStatus = 1
+	// Completed jobs have finised successfully
+	Completed JobStatus = 2
+	// Failed jobs did not complete successfully
+	Failed JobStatus = 3
 )
 
 // Job is a record of a Builder task
 type Job struct {
-    ID        int
-    Task      Task
-    Status    JobStatus
-    User      string
-    Created   time.Time
-    Started   time.Time
-    Finished  time.Time
-    BuilderID int
+	ID        int
+	Task      Task
+	Status    JobStatus
+	User      string
+	Created   time.Time
+	Started   time.Time
+	Finished  time.Time
+	BuilderID int
 }
