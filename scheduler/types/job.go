@@ -39,6 +39,7 @@ type Job struct {
     ID        int
     Task      Task
     Status    JobStatus
+    User      string
     Created   time.Time
     Started   time.Time
     Finished  time.Time
